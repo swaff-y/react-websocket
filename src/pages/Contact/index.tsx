@@ -7,7 +7,13 @@ const StyledNavBar = styled(Navbar)`
   background-color: #323234;
 `;
 
-
+const StyledContainer = styled.div`
+  background-color: #202528;
+  height: 100vh;
+  margin-top: 1rem;
+  margin-left: 1.8rem;
+  margin-right: 1.8rem;
+`;
 
 
 export const Contact = () => {
@@ -53,9 +59,9 @@ export const Contact = () => {
           </Nav.Item>
         </Nav>
       </StyledNavBar>
-      <Container fluid>
+      <StyledContainer>
         <Outlet />
-      </Container>
+      </StyledContainer>
     </div>
   );
 }

@@ -3,12 +3,12 @@ import { Outlet } from "react-router-dom";
 import { styled } from "styled-components";
 
 const StyledNavBar = styled(Navbar)`
-  background-color: #323234;
+  background-color: #202528;
 `;
 
 const StyledContainer = styled.div`
   background-color: #323234;
-  height: 100vh;
+  height: 125vh;
 `;
 
 export const Home = () => {
@@ -23,9 +23,7 @@ export const Home = () => {
           </Nav>
         </Container>
       </StyledNavBar>
-      <div>
-        <Outlet />
-      </div>
+      <Outlet />
     </StyledContainer>
   );
 };
