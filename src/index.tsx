@@ -1,15 +1,52 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
+import { Home } from './pages/Home';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import { Contact } from './pages/Contact';
+import { NewContact } from './pages/Contact/pages/Create';
+import { UpdateContact } from './pages/Contact/pages/Update';
+import { ContactView } from './pages/Contact/pages/View';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    errorElement: <div>Error</div>,
+    element: <Home />,
+    children: [
+      {
+        path: "/contact",
+        element: <Contact />,
+        children: [
+          {
+            path: "new",
+            element: <NewContact />,
+          },
+          {
+            path: "view",
+            element: <ContactView />,
+          },
+          {
+            path: "update",
+            element: <UpdateContact />,
+          }
+        ]
+      }
+    ]
+  }
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
