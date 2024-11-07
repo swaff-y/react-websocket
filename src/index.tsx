@@ -12,6 +12,7 @@ import { Contact } from './pages/Contact';
 import { NewContact } from './pages/Contact/pages/Create';
 import { UpdateContact } from './pages/Contact/pages/Update';
 import { ContactView } from './pages/Contact/pages/View';
+import { WebSocketProvider } from './providers/Websocket';
 
 const router = createBrowserRouter([
   {
@@ -46,7 +47,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <WebSocketProvider url="ws://localhost:4567">
+      <RouterProvider router={router} />
+\   </WebSocketProvider>
   </React.StrictMode>
 );
 
